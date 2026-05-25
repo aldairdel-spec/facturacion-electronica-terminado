@@ -80,7 +80,7 @@ CREATE INDEX idx_producto_codigo   ON producto(codigo);
 -- Hash BCrypt generado para 'Admin123!'
 INSERT INTO empleado (nombre, cargo, usuario, contrasena)
 VALUES ('Administrador Principal', 'ADMINISTRADOR', 'admin',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy');
+        '$2b$10$W35K9ROytE//Z0.ZKTIw4uMWNmPLF64JLrh9AXD/57Cgb6FHVB2OO');
 
 -- Datos de ejemplo
 INSERT INTO cliente (nombre, cedula, telefono, correo, direccion)

@@ -12,8 +12,10 @@ import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.*;
 import com.vaadin.flow.component.sidenav.*;
+import com.vaadin.flow.router.BeforeEnterEvent;
+import com.vaadin.flow.router.BeforeEnterObserver;
 
-public class MainLayout extends AppLayout {
+public class MainLayout extends AppLayout implements BeforeEnterObserver {
 
     private final AuthService authService = AuthService.getInstance();
 
@@ -21,6 +23,13 @@ public class MainLayout extends AppLayout {
         setPrimarySection(Section.DRAWER);
         addToNavbar(true, crearNavbar());
         addToDrawer(crearDrawer());
+    }
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent event) {
+        if (!authService.estaAutenticado()) {
+            event.rerouteTo(LoginView.class);
+        }
     }
 
     // ---- NAVBAR SUPERIOR ----
